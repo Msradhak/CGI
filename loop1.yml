@@ -1,0 +1,21 @@
+---
+ - hosts: cent
+   tasks: 
+    - name: installing  software  telnet 
+      yum: name="{{ item }}"
+      with_items:
+       - telnet
+       - ftp
+       - screen
+       - vsftpd
+       - finger 
+
+    - name: want to copy alot of files
+      copy: src="{{ item }}"  dest=/tmp
+      with_items:
+       - /etc/hosts
+       - /etc/passwd
+       - /etc/group 
+
+
+
